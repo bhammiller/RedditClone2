@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Post</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${addpost}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+    User :<input type="text" th:field="*{user}" />
+    <span th:if="${#fields.hasErrors('user')}"
+          th:errors="*{user}"></span><br />
+
+    Title :<input type="text" th:field="*{title}" />
+    <span th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"></span><br />
+
+    URL :<input type="text" th:field="*{url}" />
+    <span th:if="${#fields.hasErrors('url')}"
+          th:errors="*{url}"></span><br />
+
+    Date :<input type="text" th:field="*{date}" />
+    <span th:if="${#fields.hasErrors('date')}"
+          th:errors="*{date}"></span><br />
+
+    <br />
+    <input type="submit" value="Post" />
+</form>
+</body>
+</html>
