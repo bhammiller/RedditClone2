@@ -5,7 +5,6 @@
     <title>Home Page</title>
 </head>
 <body>
-<a th:href="@{https://www.google.com}">Update</a>
 <form action="#"
       th:action="@{/add}"
       method="post">
@@ -26,14 +25,13 @@ Post List<br />
 
     <tr th:each="redditPosts : ${posts}">
         Post Title: <span th:text="${redditPosts.title}"></span><br />
-        <a th:href="@{${redditPosts.url}}" th:inline="text">[[${redditPosts.url}]]</a>
+        <a th:href="@{${redditPosts.url}}" th:target="_blank" th:inline="text">[[${redditPosts.url}]]</a><br />
         Posted by: <span th:text="${redditPosts.user}"></span><br />
-        Posted on <span th:text="${redditPosts.date}"></span><br /><br />
-        <td>
+        Posted on <span th:text="${redditPosts.date}"></span><br />
             <a th:href="@{/update/{id}(id=${redditPosts.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${redditPosts.id})}">Details</a> -
             <a th:href="@{/delete/{id}(id=${redditPosts.id})}">Delete</a>
-        </td>
+        <br /><br /><br />
     </tr>
 
 </table>

@@ -16,9 +16,9 @@ Posts by User
 <table>
 
     <tr th:each="redditPosts : ${posts}">
-        <span th:text="${redditPosts.title}"></span><br />
         <span th:text="${redditPosts.user}"></span><br />
-        <span th:text="${redditPosts.url}"></span><br />
+        <span th:text="${redditPosts.title}"></span><br />
+        <a th:href="@{${redditPosts.url}}" th:target="_blank" th:inline="text">[[${redditPosts.url}]]</a><br />
         <span th:text="${redditPosts.date}"></span><br /><br />
 
     </tr>

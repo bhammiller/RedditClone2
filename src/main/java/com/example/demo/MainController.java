@@ -44,13 +44,13 @@ public class MainController {
     @RequestMapping("/detail/{id}")
     public String showAddress(@PathVariable("id") long id, Model model){
         model.addAttribute("redditPosts", postRepository.findOne(id));
-        return "show";
+        return "linkpage";
     }
 
     @RequestMapping("/update/{id}")
     public String updateAddress(@PathVariable("id") long id, Model model){
         model.addAttribute("RedditPosts", postRepository.findOne(id));
-        return "addressform";
+        return "addpostpage";
     }
 
     @RequestMapping("/delete/{id}")
