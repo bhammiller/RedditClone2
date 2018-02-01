@@ -41,6 +41,24 @@ public class MainController {
         return "redirect:/";
     }
 
+    @RequestMapping("/detail/{id}")
+    public String showAddress(@PathVariable("id") long id, Model model){
+        model.addAttribute("redditPosts", postRepository.findOne(id));
+        return "show";
+    }
+
+    @RequestMapping("/update/{id}")
+    public String updateAddress(@PathVariable("id") long id, Model model){
+        model.addAttribute("RedditPosts", postRepository.findOne(id));
+        return "addressform";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delAddress(@PathVariable("id") long id){
+        postRepository.delete(id);
+        return "redirect:/";
+    }
+
     @PostMapping("/search")
     public String searchPosts(@RequestParam("searchUser") String searchUser, Model model){
 

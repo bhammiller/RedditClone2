@@ -5,13 +5,13 @@
     <title>Home Page</title>
 </head>
 <body>
+<a th:href="@{https://www.google.com}">Update</a>
 <form action="#"
       th:action="@{/add}"
       method="post">
 
     <input type="submit" value="Add a post" />
 </form>
-
 <form action="#"
       th:action="@{/search}"
       method="post">
@@ -26,11 +26,16 @@ Post List<br />
 
     <tr th:each="redditPosts : ${posts}">
         Post Title: <span th:text="${redditPosts.title}"></span><br />
-        <span th:text="${redditPosts.url}"></span><br />
+        <a th:href="@{${redditPosts.url}}" th:inline="text">[[${redditPosts.url}]]</a>
         Posted by: <span th:text="${redditPosts.user}"></span><br />
         Posted on <span th:text="${redditPosts.date}"></span><br /><br />
-
+        <td>
+            <a th:href="@{/update/{id}(id=${redditPosts.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${redditPosts.id})}">Details</a> -
+            <a th:href="@{/delete/{id}(id=${redditPosts.id})}">Delete</a>
+        </td>
     </tr>
+
 </table>
 
 </body>
