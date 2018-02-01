@@ -5,6 +5,24 @@
     <title>User Page</title>
 </head>
 <body>
+<form action="#"
+      th:action="@{/}"
+      method="post">
+
+    <br />
+    <input type="submit" value="Main Page" />
+</form><br /><br />
+Posts by User
+<table>
+
+    <tr th:each="redditPosts : ${posts}">
+        <span th:text="${redditPosts.title}"></span><br />
+        <span th:text="${redditPosts.user}"></span><br />
+        <span th:text="${redditPosts.url}"></span><br />
+        <span th:text="${redditPosts.date}"></span><br /><br />
+
+    </tr>
+</table>
 
 </body>
 </html>

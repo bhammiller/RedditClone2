@@ -6,6 +6,13 @@
 </head>
 <body>
 <form action="#"
+      th:action="@{/}"
+      method="post">
+
+    <br />
+    <input type="submit" value="Main Page" />
+</form><br /><br />
+<form action="#"
       th:action="@{/process}"
       th:object="${addpost}"
       method="post">

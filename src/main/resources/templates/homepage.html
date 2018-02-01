@@ -11,5 +11,27 @@
 
     <input type="submit" value="Add a post" />
 </form>
+
+<form action="#"
+      th:action="@{/search}"
+      method="post">
+
+    Search for Posts By User :<br /><input type="text" name="searchUser" />
+
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+Post List<br />
+<table>
+
+    <tr th:each="redditPosts : ${posts}">
+        Post Title: <span th:text="${redditPosts.title}"></span><br />
+        <span th:text="${redditPosts.url}"></span><br />
+        Posted by: <span th:text="${redditPosts.user}"></span><br />
+        Posted on <span th:text="${redditPosts.date}"></span><br /><br />
+
+    </tr>
+</table>
+
 </body>
 </html>
