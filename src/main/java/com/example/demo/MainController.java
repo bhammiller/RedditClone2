@@ -33,7 +33,7 @@ public class MainController {
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid RedditPosts redposts, BindingResult result){
+    public String processForm(@Valid @ModelAttribute("addpost") RedditPosts redposts, BindingResult result){
         if (result.hasErrors()){
             return "addpostpage";
         }
@@ -49,7 +49,7 @@ public class MainController {
 
     @RequestMapping("/update/{id}")
     public String updateAddress(@PathVariable("id") long id, Model model){
-        model.addAttribute("RedditPosts", postRepository.findOne(id));
+        model.addAttribute("addpost", postRepository.findOne(id));
         return "addpostpage";
     }
 
