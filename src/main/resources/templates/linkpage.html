@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Link Page</title>
+</head>
+<body>
+<a href="/">Return to Main Page</a><br />
+<br />
+<br />
+Title: <span th:text="${redditPosts.title}"></span><br />
+Posted by: <span th:text="${redditPosts.user}"></span><br />
+<a th:href="@{${redditPosts.url}}" th:target="_blank" th:inline="text">[[${redditPosts.url}]]</a><br />
+Date: <span th:text="${redditPosts.date}"></span><br /><br />
+</body>
+</html>
